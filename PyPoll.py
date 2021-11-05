@@ -1,6 +1,6 @@
 import csv
 import os
-#assigns variable for the file to load from a path and a variable to save to a path
+# Assigns variable for the file to load from a path and a variable to save to a path
 file_to_load = os.path.join("Resources", "election_results.csv")
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
@@ -31,7 +31,7 @@ with open(file_to_load) as election_data:
 
         total_votes += 1
 
-        # Print candidate name for each row
+        # Acquire candidate name for each row
         candidate_name = row[2]
 
         if candidate_name not in candidate_options:
@@ -44,14 +44,33 @@ with open(file_to_load) as election_data:
         # Add a vote to that candidate's count
         candidate_votes[candidate_name] += 1
 
+
+# Save results to a txt file
+with open(file_to_save, "w") as txt_file:
+
+    # Print the final vote count to the terminal.
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    print(election_results, end="")
+
+    # Save the final vote count to the text file.
+    txt_file.write(election_results)
+
     # Iterate through the candidate list
     for candidate_name in candidate_votes:
         # Retrieve vote count of a candidate
         votes = candidate_votes[candidate_name]
         # Calculate the percentage of votes
         vote_percentage = float(votes) / float(total_votes) * 100
-        # Print the candidate name and percentage of votes
-        print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        # Print the candidate name and percentage of votes to PyPoll and election_analysis.txt
+        candidate_results = (
+            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+
+        print(candidate_results)
+        txt_file.write(candidate_results)
 
         # Determine winner
         if (votes > winning_count) and (vote_percentage > winning_percentage):
@@ -66,35 +85,19 @@ with open(file_to_load) as election_data:
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"-------------------------\n")
     print(winning_candidate_summary)
+    txt_file.write(winning_candidate_summary)
 
-# # Print the candidate list
-# print(candidate_options)
-# print(candidate_votes)
-# print(f"{total_votes:,}")
+
+    # # Print the candidate list
+    # print(candidate_options)
+    # print(candidate_votes)
+    # print(f"{total_votes:,}")
 
 
 
 
 # close the file
 election_data.close()
-
-
-
-
-
-
-
-
-
-
-
-
-# Using the with statement open the file as a text file.
-with open(file_to_save, "w") as txt_file:
-    
-    # Write some data to the file.
-    txt_file.write("Counties in the Election\n------------------------\n")
-    txt_file.write("Arapahoe\nDenver\nJefferson")
 
 
 # Close the file
