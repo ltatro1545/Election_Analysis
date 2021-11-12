@@ -54,9 +54,9 @@ The script produced during this project adequately incorporates county data into
 Though it may be important to calculate which county contributed the highest number of raw votes, there could also be a calculation to determine which county had the highest participation rate. This would be done by simply dividing the county vote by its population.
 
 ![county_turnout_code](https://user-images.githubusercontent.com/92493572/141523837-315dea8e-335e-4d33-8a82-75ce9d82c26d.png)
+[Figure 3]
 ![county_turnout_output](https://user-images.githubusercontent.com/92493572/141523839-8095f3b6-1f61-41ba-b93e-88852964f05b.png)
-
-[Figure 3] & [Figure 4] 
+[Figure 4] 
 
 As seen above, a dictionary was created to hold county populations, followed by a script to pull the values from that dictionary and assign it a variable "countypop". The voter participation was then calculated in the same as "vote_percentage" (above), but used the new "countypop" variable in place of "total_votes". At the bottom of Figure 3, an extra line was added to "county_results" to include voter participation. This was done in a neat and tidy way to compliment the original results. The output of that script is seen in Figure 4.
 
