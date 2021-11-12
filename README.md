@@ -3,7 +3,7 @@
 ## Project Purpose and Overview
 A Colorado Board of Elections employee requested an election audit to accurately tabulate election results. An election audit to determine which candidate won the election has already been provided to them, but they would now like to tabulate the county turnout.
 
-The appropriate tasks to format and execute their request are as follows:
+The appropriate tasks to format and execute their request is as follows:
   
   1. Create a list of counties that received votes.
   2. Assign the correct vote count to each county.
@@ -46,3 +46,10 @@ The original code produced the results seen in Figure 1, but did not include cou
 THe updated code produced the same results as Figure 1, but neatly added relevant county information.
 
 ## Election Audit Summary
+The script produced during this project adequately incorporates county data into the results, though has the potential to do much more. First, it is important to note that the voter turnout was calculated based off of total votes received - it did not incorporate county population, which is important to note when comparing the percentage of voter turnout. For instance, the 2020 census report shows the following populations of each county:
+  - Arapahoe County: 655,070
+  - Denver County: 705,576
+  - Jefferson County: 582,881
+Though it may be important to calculate which county contributed the highest number of votes, there could also be a calculation to determine which county had the highest participation rate. This would be done by simply dividing the county vote by its population.
+
+Next, it may be worthwhile to look at individual subdivisions of each county (sometimes called "beats" or "zones"), and determine their voter participation. First, this column of information would need to be included in the csv file. After that, one would make a Python list to hold all of the subdivisions, a dictionary to hold each subdivision vote vote, and then assign a column to a new variable. 
