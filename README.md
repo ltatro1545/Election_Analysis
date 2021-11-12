@@ -50,6 +50,13 @@ The script produced during this project adequately incorporates county data into
   - Arapahoe County: 655,070
   - Denver County: 705,576
   - Jefferson County: 582,881
+
 Though it may be important to calculate which county contributed the highest number of votes, there could also be a calculation to determine which county had the highest participation rate. This would be done by simply dividing the county vote by its population.
+
+![county_turnout_code](https://user-images.githubusercontent.com/92493572/141523837-315dea8e-335e-4d33-8a82-75ce9d82c26d.png)
+![county_turnout_output](https://user-images.githubusercontent.com/92493572/141523839-8095f3b6-1f61-41ba-b93e-88852964f05b.png)
+
+[Figure 3] & [Figure 4] 
+
 
 Next, it may be worthwhile to look at individual subdivisions of each county (sometimes called "beats" or "zones"), and determine their voter participation. First, this column of information would need to be included in the csv file. After that, one would make a Python list to hold all of the subdivisions, a dictionary to hold each subdivision vote vote, and then assign a column to a new variable. 
